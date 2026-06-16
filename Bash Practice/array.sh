@@ -10,3 +10,15 @@ echo "Second element: ${myArray[1]}"
 
 echo "Third element: ${myArray[2]}"
 # Output: Third element: Emon
+
+# LOOP
+echo "All elements in the array: "
+for element in "${myArray[@]}"
+do
+    echo "$element"
+done
+# Output:
+# All elements in the array:
+# Emrul
+# Hasan
+# Emon
