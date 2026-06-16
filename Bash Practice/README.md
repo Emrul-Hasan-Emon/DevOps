@@ -31,6 +31,82 @@ There are three types of variables:
 - **Special Variables** — built-in context variables (e.g. `$0`, `$1`, `$@`)
 - **Arrays** — indexed collections (e.g. `fruits=('apple' 'banana')`)
 
+## Conditions
+
+### If-Else
+
+```bash
+if [ condition ]; then
+  # commands
+elif [ other_condition ]; then
+  # commands
+else
+  # commands
+fi
+```
+
+Example:
+```bash
+if [ $1 -gt 10 ]; then
+  echo "Greater than 10"
+elif [ $1 -eq 10 ]; then
+  echo "Equal to 10"
+else
+  echo "Less than 10"
+fi
+```
+
+### Case Statement
+
+```bash
+case $variable in
+  pattern1)
+    # commands
+    ;;
+  pattern2)
+    # commands
+    ;;
+  *)
+    # default
+    ;;
+esac
+```
+
+Example:
+```bash
+case $1 in
+  start)
+    echo "Starting..."
+    ;;
+  stop)
+    echo "Stopping..."
+    ;;
+  restart)
+    echo "Restarting..."
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    ;;
+esac
+```
+
+### Common Comparison Operators
+
+| Operator | Meaning |
+|----------|---------|
+| `-eq` | Equal to (numeric) |
+| `-ne` | Not equal to (numeric) |
+| `-gt` | Greater than (numeric) |
+| `-lt` | Less than (numeric) |
+| `-ge` | Greater than or equal (numeric) |
+| `-le` | Less than or equal (numeric) |
+| `=` | Equal to (string) |
+| `!=` | Not equal to (string) |
+| `-z` | String is empty |
+| `-n` | String is not empty |
+| `-f` | File exists |
+| `-d` | Directory exists |
+
 ## Loops
 
 ### For Loop
