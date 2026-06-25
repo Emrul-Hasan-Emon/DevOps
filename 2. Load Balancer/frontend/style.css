@@ -71,7 +71,7 @@ button {
   transition: opacity 0.15s;
 }
 
-button:hover { opacity: 0.85; }
+button:hover  { opacity: 0.85; }
 button:active { opacity: 0.7; }
 button:disabled { opacity: 0.4; cursor: not-allowed; }
 
@@ -80,15 +80,22 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
   color: white;
 }
 
+#applyServersBtn {
+  background: #10b981;
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+}
+
 button.secondary {
   background: #2d3148;
   color: #94a3b8;
 }
 
-/* Server Cards */
+/* Server Cards — dynamic grid that adapts to N servers */
 .stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
   margin-bottom: 16px;
 }
@@ -100,17 +107,17 @@ button.secondary {
   padding: 20px 24px;
   position: relative;
   overflow: hidden;
+  animation: fadeIn 0.25s ease;
 }
 
+/* Top accent bar driven by --accent CSS variable set inline */
 .server-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
+  background: var(--accent, #6366f1);
 }
-
-.server-a::before { background: #6366f1; }
-.server-b::before { background: #f59e0b; }
 
 .server-card h2 {
   font-size: 0.85rem;
@@ -125,10 +132,8 @@ button.secondary {
   font-weight: 700;
   line-height: 1;
   margin-bottom: 4px;
+  color: var(--text, #818cf8);
 }
-
-.server-a .count { color: #818cf8; }
-.server-b .count { color: #fbbf24; }
 
 .sublabel {
   font-size: 0.8rem;
@@ -165,14 +170,12 @@ button.secondary {
   height: 100%;
 }
 
-.bar-a { background: #6366f1; }
-.bar-b { background: #f59e0b; }
-
 .bar-labels {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px;
   font-size: 0.78rem;
-  color: #64748b;
 }
 
 /* Log table */
@@ -208,7 +211,6 @@ thead th {
 }
 
 tbody tr {
-  border-bottom: 1px solid #1a1f2e;
   animation: fadeIn 0.2s ease;
 }
 
@@ -218,10 +220,6 @@ tbody td {
   padding: 8px 12px;
   color: #94a3b8;
 }
-
-tr.row-a td:nth-child(2) { color: #818cf8; font-weight: 600; }
-tr.row-b td:nth-child(2) { color: #fbbf24; font-weight: 600; }
-tr.row-error td { color: #f87171; opacity: 0.7; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-4px); }

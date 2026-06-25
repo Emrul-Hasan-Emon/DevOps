@@ -11,6 +11,11 @@
 
   <section class="controls">
     <label>
+      Servers:
+      <input type="number" id="serverCount" value="2" min="1" max="10">
+      <button id="applyServersBtn">Apply</button>
+    </label>
+    <label>
       Requests to fire:
       <input type="number" id="requestCount" value="10" min="1" max="100">
     </label>
@@ -26,30 +31,11 @@
     <button id="resetBtn" class="secondary">Reset</button>
   </section>
 
-  <section class="stats">
-    <div class="server-card server-a">
-      <h2>Server A</h2>
-      <div class="count" id="count-a">0</div>
-      <div class="sublabel">requests handled</div>
-      <div class="active-label">Active: <span id="active-a">0</span></div>
-    </div>
-    <div class="server-card server-b">
-      <h2>Server B</h2>
-      <div class="count" id="count-b">0</div>
-      <div class="sublabel">requests handled</div>
-      <div class="active-label">Active: <span id="active-b">0</span></div>
-    </div>
-  </section>
+  <section class="stats" id="statsGrid"></section>
 
   <section class="bar-section">
-    <div class="bar-wrap">
-      <div class="bar bar-a" id="bar-a" style="width: 50%"></div>
-      <div class="bar bar-b" id="bar-b" style="width: 50%"></div>
-    </div>
-    <div class="bar-labels">
-      <span id="pct-a">50%</span>
-      <span id="pct-b">50%</span>
-    </div>
+    <div class="bar-wrap" id="barWrap"></div>
+    <div class="bar-labels" id="barLabels"></div>
   </section>
 
   <section class="log">

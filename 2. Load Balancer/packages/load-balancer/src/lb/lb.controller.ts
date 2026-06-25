@@ -26,6 +26,13 @@ export class LbController {
     return { active: algorithm };
   }
 
+  @Post('servers')
+  async setServers(@Body('count') count: number) {
+    const n = Math.min(Math.max(Math.floor(count), 1), 10);
+    await this.lbService.setServerCount(n);
+    return { count: n };
+  }
+
   @Get('status')
   getStatus() {
     return this.lbService.getStatus();
