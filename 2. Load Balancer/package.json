@@ -1,0 +1,11 @@
+{
+  "name": "load-balancer-sim",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "start": "concurrently --prefix-colors cyan,yellow,magenta --names LB,SrvA,SrvB \"npm run start:dev -w packages/load-balancer\" \"npm run start:dev -w packages/server-a\" \"npm run start:dev -w packages/server-b\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
